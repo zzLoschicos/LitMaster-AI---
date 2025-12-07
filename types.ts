@@ -8,6 +8,12 @@ export interface Question {
   analysis: string; // Explaining why this is the answer based on the PDF rules
 }
 
+export interface ChatMessage {
+  role: 'user' | 'model';
+  text: string;
+  timestamp: number;
+}
+
 export interface AnalysisResult {
   id: string;
   title: string;
@@ -23,16 +29,12 @@ export interface AnalysisResult {
   generatedQuestions: Question[];
   timestamp: number;
   originalText: string;
+  chatHistory?: ChatMessage[]; // Store chat history for this specific analysis
 }
 
 export interface User {
   username: string;
+  password?: string; // Optional because we might not store it in state after login
   avatar: string;
   role: 'student' | 'teacher';
-}
-
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  timestamp: number;
 }

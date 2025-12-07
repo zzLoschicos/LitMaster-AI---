@@ -14,7 +14,7 @@ Your goal is to analyze texts (Prose/散文, Poetry/诗歌, Novels/小说) and g
    - **Answer Template:** "这里运用了[Method]的手法，写出了[Object]的[Feature]特点，表达了作者[Emotion]的思想感情。" (Used [Method], described [Feature] of [Object], expressed [Emotion]).
 
 2. **POETRY (诗歌):**
-   - **Imagery & Emotion:** Analyze imagery (Moon=Nostalgia, Willow=Parting).
+   - **Imagery & Emotion:** Analyze imagery (Moon=Nostalgia, Willow=Parting, etc.).
    - **Techniques:** Direct/Indirect Lyricism, Contrast (Old vs New), Symbolism, Allusion.
    - **Answer Steps:** 1. Describe the scene (Image). 2. Name the technique. 3. Analyze emotion/intent.
    - **Template:** "诗句描述了……的画面，运用了……的手法，烘托了……的意境，抒发了……的感情。"
@@ -24,6 +24,7 @@ Your goal is to analyze texts (Prose/散文, Poetry/诗歌, Novels/小说) and g
    - **Plot:** Opening, Development, Climax, Ending. Effect of plot on character/theme.
    - **Environment:** Natural (atmosphere, foreshadowing) vs Social (background, destiny).
    - **Answer Template for Characters:** "×××是一个[Personality Traits] + [Identity/Status]的人。"
+   - **Plot Analysis:** "设置悬念，引起阅读兴趣；为下文做铺垫；推动情节发展。"
 
 **OUTPUT RULES:**
 - Always be professional yet encouraging.
@@ -113,7 +114,8 @@ export const analyzeText = async (text: string, type: TextType): Promise<Analysi
     id: Date.now().toString(),
     textType: type,
     timestamp: Date.now(),
-    originalText: text
+    originalText: text,
+    chatHistory: []
   };
 };
 
