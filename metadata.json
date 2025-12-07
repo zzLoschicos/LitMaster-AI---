@@ -1,0 +1,5 @@
+{
+  "name": "LitMaster AI - 语文冲刺提分训练营",
+  "description": "An intelligent study assistant for Chinese literature (Prose, Poetry, Novels) that analyzes text, generates exam-style questions with standard answers based on specific scoring techniques, and provides personalized Q&A.",
+  "requestFramePermissions": []
+}
