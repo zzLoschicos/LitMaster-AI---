@@ -11,7 +11,7 @@ const History: React.FC<HistoryProps> = ({ history, onSelect }) => {
   return (
     <div className="p-8 max-w-6xl mx-auto">
       <h2 className="text-3xl font-bold text-slate-800 mb-8 flex items-center gap-3">
-        <Clock className="w-8 h-8 text-indigo-600" /> 学习记录 (History)
+        <Clock className="w-8 h-8 text-indigo-600" /> 历史记录
       </h2>
       
       {history.length === 0 ? (
@@ -33,7 +33,7 @@ const History: React.FC<HistoryProps> = ({ history, onSelect }) => {
                     item.textType === 'POETRY' ? 'bg-emerald-100 text-emerald-700' :
                     'bg-purple-100 text-purple-700'
                  }`}>
-                    {item.textType}
+                    {item.textType === 'PROSE' ? '散文' : item.textType === 'POETRY' ? '诗歌' : '小说'}
                  </div>
                  <span className="text-slate-400 text-xs">
                     {new Date(item.timestamp).toLocaleDateString()}
@@ -48,9 +48,9 @@ const History: React.FC<HistoryProps> = ({ history, onSelect }) => {
               </p>
               
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                <span className="text-xs text-slate-400 font-medium">{item.generatedQuestions.length} Questions</span>
+                <span className="text-xs text-slate-400 font-medium">{item.generatedQuestions.length} 道题</span>
                 <div className="flex items-center text-indigo-600 font-bold text-sm gap-1 group-hover:gap-2 transition-all">
-                    复习 (Review) <ChevronRight className="w-4 h-4" />
+                    复习 <ChevronRight className="w-4 h-4" />
                 </div>
               </div>
             </div>

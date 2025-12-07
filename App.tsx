@@ -85,7 +85,7 @@ const App: React.FC = () => {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${currentView === 'analyzer' && !selectedResult ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50' : 'text-slate-400 hover:bg-slate-800 hover:text-white'}`}
           >
             <LayoutDashboard className="w-5 h-5" />
-            <span className="font-medium">智能鉴赏 (Analyzer)</span>
+            <span className="font-medium">智能鉴赏</span>
           </button>
           
           <button 
@@ -93,7 +93,7 @@ const App: React.FC = () => {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${currentView === 'history' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50' : 'text-slate-400 hover:bg-slate-800 hover:text-white'}`}
           >
             <HistoryIcon className="w-5 h-5" />
-            <span className="font-medium">历史记录 (History)</span>
+            <span className="font-medium">历史记录</span>
           </button>
           
           <button 
@@ -101,7 +101,7 @@ const App: React.FC = () => {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${currentView === 'profile' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50' : 'text-slate-400 hover:bg-slate-800 hover:text-white'}`}
           >
             <UserCircle className="w-5 h-5" />
-            <span className="font-medium">个人中心 (Profile)</span>
+            <span className="font-medium">个人中心</span>
           </button>
         </nav>
 

@@ -1,5 +1,5 @@
 {
   "name": "LitMaster AI - 语文冲刺提分训练营",
-  "description": "An intelligent study assistant for Chinese literature (Prose, Poetry, Novels) that analyzes text, generates exam-style questions with standard answers based on specific scoring techniques, and provides personalized Q&A.",
+  "description": "一个智能的语文学习助手，专注于散文、诗歌和小说鉴赏。它能分析文本，基于特定的评分技巧生成考试风格的问题和标准答案，并提供个性化答疑。",
   "requestFramePermissions": []
 }

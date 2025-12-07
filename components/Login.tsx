@@ -18,24 +18,24 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     setError('');
 
     if (!username.trim() || !password.trim()) {
-      setError('Please fill in all fields');
+      setError('请填写所有字段');
       return;
     }
 
     if (isRegister) {
       if (password.length < 5) {
-        setError('Password is too simple (min 5 characters)');
+        setError('密码太简单（至少5位）');
         return;
       }
       if (password !== confirmPassword) {
-        setError('Passwords do not match');
+        setError('两次输入的密码不一致');
         return;
       }
 
       // Simulating registration by saving to localStorage
       const users = JSON.parse(localStorage.getItem('litmaster_users') || '[]');
       if (users.find((u: User) => u.username === username)) {
-        setError('Username already exists');
+        setError('用户名已存在');
         return;
       }
 
@@ -58,7 +58,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       if (foundUser) {
         onLogin(foundUser);
       } else {
-        setError('Invalid username or password');
+        setError('用户名或密码错误');
       }
     }
   };
@@ -78,20 +78,20 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             onClick={() => { setIsRegister(false); setError(''); }}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${!isRegister ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500'}`}
           >
-            登录 (Login)
+            登录
           </button>
           <button 
             onClick={() => { setIsRegister(true); setError(''); }}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${isRegister ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500'}`}
           >
-            注册 (Register)
+            注册
           </button>
         </div>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="用户名"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all text-lg"
@@ -99,7 +99,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="密码"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all text-lg"
@@ -109,7 +109,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           {isRegister && (
              <input
               type="password"
-              placeholder="Confirm Password"
+              placeholder="确认密码"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all text-lg animate-in fade-in slide-in-from-top-2"
@@ -124,12 +124,12 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2"
           >
             {isRegister ? <UserPlus className="w-5 h-5"/> : <LogIn className="w-5 h-5"/>}
-            {isRegister ? 'Create Account' : 'Start Learning'}
+            {isRegister ? '注册账号' : '开始学习'}
           </button>
         </form>
         
         <p className="mt-8 text-xs text-slate-400">
-          Powered by Google Gemini 2.5 Flash
+          技术支持：Google Gemini 2.5 Flash
         </p>
       </div>
     </div>

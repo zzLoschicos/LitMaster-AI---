@@ -78,7 +78,7 @@ const RESPONSE_SCHEMA: Schema = {
 
 export const analyzeText = async (text: string, type: TextType): Promise<AnalysisResult> => {
   if (!process.env.API_KEY) {
-    throw new Error("API Key is missing.");
+    throw new Error("缺少 API Key。");
   }
 
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -105,7 +105,7 @@ export const analyzeText = async (text: string, type: TextType): Promise<Analysi
   });
 
   const textResponse = response.text;
-  if (!textResponse) throw new Error("No response from AI");
+  if (!textResponse) throw new Error("AI 未返回数据。");
 
   const data = JSON.parse(textResponse);
   
@@ -121,7 +121,7 @@ export const analyzeText = async (text: string, type: TextType): Promise<Analysi
 
 export const chatWithTutor = async (history: {role: string, parts: {text: string}[]}[], newMessage: string, contextText: string): Promise<string> => {
    if (!process.env.API_KEY) {
-    throw new Error("API Key is missing.");
+    throw new Error("缺少 API Key。");
   }
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const chat = ai.chats.create({
@@ -136,5 +136,5 @@ export const chatWithTutor = async (history: {role: string, parts: {text: string
   });
 
   const result = await chat.sendMessage({ message: newMessage });
-  return result.text || "Sorry, I couldn't generate a response.";
+  return result.text || "抱歉，由于网络原因无法生成回复。";
 };
