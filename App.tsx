@@ -71,7 +71,7 @@ const App: React.FC = () => {
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden font-sans">
       {/* Sidebar Navigation */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-white transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} shadow-2xl lg:shadow-none`}>
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-white transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} shadow-2xl lg:shadow-none print:hidden`}>
         <div className="flex items-center justify-between p-6 border-b border-slate-800">
            <h1 className="text-xl font-bold tracking-tight text-indigo-400">LitMaster AI</h1>
            <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-slate-400 hover:text-white">
@@ -118,7 +118,7 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0">
-        <header className="bg-white border-b border-slate-200 lg:hidden p-4 flex items-center justify-between shadow-sm sticky top-0 z-10">
+        <header className="bg-white border-b border-slate-200 lg:hidden p-4 flex items-center justify-between shadow-sm sticky top-0 z-10 print:hidden">
            <span className="font-bold text-slate-800 text-lg">LitMaster AI</span>
            <button onClick={() => setSidebarOpen(true)} className="text-slate-600 p-2 hover:bg-slate-100 rounded-lg">
              <Menu className="w-6 h-6" />
